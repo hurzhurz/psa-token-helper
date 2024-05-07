@@ -5,12 +5,12 @@ import hashlib
 import secrets
 import base64
 import sys
-from PyQt5.QtCore import QUrl, QByteArray
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QLineEdit, QPushButton
-from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage, QWebEngineSettings
+from PyQt5.QtCore import QByteArray
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWebEngineCore import QWebEngineUrlRequestInterceptor, QWebEngineUrlScheme, QWebEngineUrlSchemeHandler
 
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtCore
 
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)  # enable highdpi scaling
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)  # use highdpi icons
@@ -129,7 +129,7 @@ class BrowserWindow(QMainWindow):
 
         links = []
         for brand, data in brands.items():
-            url = f"https://idpcvs.{data["realm"]}/am/oauth2/authorize?client_id={data["clientid"]}&redirect_uri={data["scheme"]}%3A%2F%2Foauth2redirect%2Fde&response_type=code&scope=openid%20profile&code_challenge_method=S256&code_challenge={code_verifier}"
+            url = f"https://idpcvs.{data['realm']}/am/oauth2/authorize?client_id={data['clientid']}&redirect_uri={data['scheme']}%3A%2F%2Foauth2redirect%2Fde&response_type=code&scope=openid%20profile&code_challenge_method=S256&code_challenge={code_verifier}"
             links.append(f"<a href=\"{url}\">{brand}</a>")
         links = "<br>".join(links)
 
@@ -144,9 +144,8 @@ Please select your vehicle brand:<br>
         custom_html = f"""
 <h1>Received Tokens:</h1>
 <pre>
-    tokens:
-      access: {access}
-      refresh: {refresh}
+    accessToken: {access}
+    refreshToken: {refresh}
 </pre>
         """
         self.browser.setHtml(custom_html)

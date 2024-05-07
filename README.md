@@ -13,7 +13,7 @@ Alternatively, install necessary python3 modules and run psa-token-helper.py.
 Here as an example with an python virtual environment:
 ```
 python3 -m venv venv
-source venv/bin/activate # on windows: .\venv3\Scripts\activate
+source venv/bin/activate # on windows: .\venv\Scripts\activate
 pip install PyQT5 PyQtWebEngine requests
 
 python psa-token-helper.py
