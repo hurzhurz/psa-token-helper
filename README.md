@@ -7,9 +7,12 @@ The start page has pre generated login links with an authorization challenge for
 After the login, the browser can read the authorization code from the redirect URL and use it to fetch the tokens.
 
 ## Usage
-For Windows, there is a pre-built executable (PyInstaller one-file bundle) in the release section.
-
-Alternatively, install necessary python3 modules and run psa-token-helper.py.  
+### Windows
+There is a pre-built executable (PyInstaller one-file bundle) in the [release section](https://github.com/hurzhurz/psa-token-helper/releases).
+### Home Assistant / Docker
+See https://github.com/hurzhurz/psa-token-helper-addon
+### General
+Install Python3 and the necessary modules to run psa-token-helper.py.  
 Here as an example with an python virtual environment:
 ```
 python3 -m venv venv
